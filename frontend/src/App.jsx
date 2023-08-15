@@ -1,7 +1,51 @@
+import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet,
+} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Register from "./pages/Register";
+import Home from "./pages/Home"
+import Login from "./pages/Login";
+import Footer from "./components/Footer"
+
+const Layout = () => {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ]
+  },
+  {
+    path: "/register",
+    element: <Register />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  }
+])
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline bg-cyan-400">
-      Hello world!
-    </h1>
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
   )
 }
