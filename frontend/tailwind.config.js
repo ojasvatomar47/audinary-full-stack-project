@@ -7,13 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        grad1: '#36454F',
+        grad1: '#FAF0D7',
         grad2: '#464646',
-        grad3: '#626262',
-        deepgold: '#B8860B',
-        goldenrod: '#DAA520',
-        darkgoldenrod: '#B8860B',
-        lightgold: '#FFDF00',
+        grad3: '#FFD9C0',
+        primary: '#8CC0DE',
+        secondary: '#CCEEBC',
+        buttonhover: '#6A9ABD',
+      },
+      fontFamily: {
+        alveria: ['Averia Sans Libre', 'cursive'],
+        lora: ['Lora', 'serif'],
+        metal: ['Metal', 'cursive'],
+        authortext: ['Freehand', 'cursive']
       }
     },
   },
