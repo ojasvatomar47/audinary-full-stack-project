@@ -109,16 +109,24 @@ const Home = () => {
     <div className=' pt-3 md:pt-32'>
       <div className="topcontent px-16 flex justify-between items-center">
         <div className="headtext text-white flex flex-col justify-center items-center text-center">
-          <h1 className='text-[100px] whitespace-normal line-clamp-4 min-w-[300px]'>Welcome to audinary</h1>
+          <h1 className='text-[100px] whitespace-normal line-clamp-4 w-auto m-auto'>
+            Welcome to <span className='text-[#B8860B]'>audinary</span>
+          </h1>
           <div className={`slideshow-container mt-10 h-14 transition-opacity duration-500 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="slideshow-text text-3xl w">{currentText}</p>
+            <p className="slideshow-text text-3xl w">
+              {currentText}
+            </p>
           </div>
         </div>
         <div className="hidden md:block">
           <img className='h-[300px] w-[300px]' src={BookPng} alt="" />
         </div>
       </div>
-      <div className="p-12 mt-32 flex justify-center items-center">
+      <div className="search mt-32 mx-5 flex items-center md:mx-24">
+        <input type="text" placeholder='Search for books' className='p-3 w-full rounded-l-md md:text-xl md:px-8 capitalize' />
+        <button className='bg-goldenrod rounded-r-md px-5 p-3 md:text-xl md:px-8 capitalize'>Search</button>
+      </div>
+      <div className="p-12 mt-28 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((card) => {
             return <Card key={card.id} book={card} />
