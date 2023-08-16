@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import BookPng from '../assets/book.png'
 import coverimg from '../assets/coverimage.jpg'
 import Card from '../components/Card.jsx'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
@@ -110,7 +111,7 @@ const Home = () => {
       <div className="topcontent px-16 flex justify-between items-center">
         <div className="headtext text-primary flex flex-col justify-center items-center text-center">
           <h1 className='text-[100px] whitespace-normal line-clamp-4 w-auto m-auto'>
-            Welcome to <span className='audinary'>audinary</span>
+            Welcome to <span className='audinary'><Link>audinary</Link></span>
           </h1>
           <div className={`slideshow-container mt-10 h-14 transition-opacity duration-500 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <p className="slideshow-text text-3xl w">

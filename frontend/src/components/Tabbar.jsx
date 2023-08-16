@@ -17,7 +17,7 @@ const TabBar = () => {
         </div>
         <div className='flex justify-center items-center hover:bg-buttonhover text-white cursor-pointer bg-primary p-2 rounded-md'>
           <button className=''>
-            LogIn/SignUp
+            <Link to="/register">LogIn/SignUp</Link>
           </button>
         </div>
       </div>

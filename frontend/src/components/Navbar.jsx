@@ -29,7 +29,7 @@ const NavBar = () => {
         </div>
         <div className='flex hover:bg-buttonhover justify-center text-white items-center cursor-pointer bg-primary p-2 rounded-md'>
           <button className=''>
-            LogIn/SignUp
+            <Link to="/register">LogIn/SignUp</Link>
           </button>
         </div>
       </div>
