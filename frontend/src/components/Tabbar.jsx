@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const TabBar = () => {
   const iconSize = 24;
   return (
-    <div>
+    <div className='md:hidden'>
       <div className='top-0 bg-gradient-to-r from-grad1 to-grad3 h-14 w-full p-4 flex items-center justify-between'>
         <div className="text-2xl font-semibold flex-1 audinary">
           <Link to="/">

@@ -22,7 +22,8 @@ const Layout = () => {
 
   return (
     <>
-      {isMobile ? <Tabbar /> : <Navbar />}
+      <Navbar />
+      <Tabbar />
       <Outlet />
       <Footer />
     </>
