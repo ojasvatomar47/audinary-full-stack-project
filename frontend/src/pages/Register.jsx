@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Register = () => {
 
@@ -9,13 +10,23 @@ const Register = () => {
     password: "",
   })
 
-  const handleChange = () => {
+  const [error, setError] = useState(null)
 
-  }
+  const navigate = useNavigate()
 
-  const handleSubmit = () => {
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:8800/api/auth/register", inputs);
+      navigate("/login")
+    } catch (err) {
+      setError(err.response.data)
+    }
+  };
 
   return (
     <div className='h-[100vh] w-[100vw] flex justify-center items-center'>
@@ -28,7 +39,7 @@ const Register = () => {
             <input type="email" required placeholder='email' name='email' className='p-3 border-2 border-secondary rounded-md' onChange={handleChange} />
             <input type="password" required placeholder='password' name='password' className='p-3 border-2 border-secondary rounded-md' onChange={handleChange} />
             <button onClick={handleSubmit} className='bg-primary text-white p-2 rounded-md hover:bg-buttonhover'>Register</button>
-            <p className='text-red-500'>There is an error!</p>
+            {error && <p className='text-red-500'>{error}</p>}
             <span>Already have an account? <Link to="/login" className='underline text-primary hover:text-buttonhover'>Login</Link></span>
           </form>
         </div>

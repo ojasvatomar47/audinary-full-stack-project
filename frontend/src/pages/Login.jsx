@@ -1,20 +1,32 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/authContext'
 
 const Login = () => {
 
   const [inputs, setInputs] = useState({
     username: "",
-    email: "",
     password: "",
   })
 
-  const handleChange = () => {
+  const [error, setError] = useState(null)
 
+  const navigate = useNavigate()
+
+  const { login } = useContext(AuthContext)
+
+  const handleChange = (event) => {
+    setInputs((prev) => ({...prev, [event.target.name]: event.target.value}))
   }
 
-  const handleSubmit = () => {
-
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      await login(inputs)
+      navigate("/")
+    } catch(err) {
+      setError(err.response.data)
+    }
   }
 
   return (
@@ -27,7 +39,7 @@ const Login = () => {
             <input type="text" required placeholder='username' name='username' className='p-3 border-2 border-secondary rounded-md' onChange={handleChange} />
             <input type="password" required placeholder='password' name='password' className='p-3 border-2 border-secondary rounded-md' onChange={handleChange} />
             <button onClick={handleSubmit} className='bg-primary text-white p-2 rounded-md hover:bg-buttonhover'>Login</button>
-            <p className='text-red-500'>There is an error!</p>
+            {error && <p className='text-red-500'>{error}</p>}
             <span>Don't have an account? <Link to="/register" className='underline text-primary hover:text-buttonhover'>Sign Up</Link></span>
           </form>
         </div>
