@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import BookPng from '../assets/book.png'
 import coverimg from '../assets/coverimage.jpg'
 import Card from '../components/Card.jsx'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../context/authContext'
 
 const Home = () => {
 
+  const { currentUser } = useContext(AuthContext)
+
   const paragraphs = [
+    `Hi  ${currentUser ? currentUser.username : 'there'}!`,
     'Welcome to the world of literature and cinema!',
     'Discover amazing content.',
     'Get direct access to the movie adaptations and paperbacks',

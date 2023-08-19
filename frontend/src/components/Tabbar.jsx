@@ -9,7 +9,7 @@ import { AuthContext } from '../context/authContext';
 const TabBar = () => {
   const iconSize = 24;
 
-  const { currentUser } = useContext(AuthContext)
+  const { currentUser, logout } = useContext(AuthContext)
 
   return (
     <div className='md:hidden'>
@@ -22,7 +22,7 @@ const TabBar = () => {
         <div className='flex justify-center items-center gap-8'>
           <h1 className='text-2xl text-secondary audinary bg-primary px-3 rounded-xl'>{currentUser?.username}</h1>
           <button className='flex hover:bg-buttonhover justify-center text-white items-center cursor-pointer bg-primary p-2 rounded-md'>
-            {currentUser ? <span>LogOut</span> : <Link to="/login">LogIn</Link>}
+            {currentUser ? <span onClick={logout}>LogOut</span> : <Link to="/login">LogIn</Link>}
           </button>
         </div>
       </div>

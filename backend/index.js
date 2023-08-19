@@ -1,8 +1,8 @@
 import express from 'express'
 import { db } from './db.js'
 import cors from 'cors'
-import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/authRoute.js";
+import userRoutes from "./routes/usersRoute.js";
 import cookieParser from 'cookie-parser';
 
 const app = express()

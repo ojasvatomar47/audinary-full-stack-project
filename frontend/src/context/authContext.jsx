@@ -3,7 +3,9 @@ import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
+// children here is our App. AuthContextProvider provides the info about the user to our whole app
 export const AuthContextProvider = ({ children }) => {
+
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
@@ -18,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
     setCurrentUser(null);
   };
 
-  useEffect(() => {
+  useEffect(() => { // will update the local storage whenever the current user is changed
     localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
 
