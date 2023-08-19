@@ -22,7 +22,8 @@ const Layout = () => {
 
   return (
     <>
-      {isMobile ? <Tabbar /> : <Navbar />}
+      <Navbar />
+      <Tabbar />
       <Outlet />
       <Footer />
     </>
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <div className="App w-auto min-h-screen bg-gradient-to-r from-[#36454F] via-[#464646] to-[#626262]">
+    <div className= 'App pb-12 md:pb-0 w-auto min-h-screen bg-gradient-to-r from-grad1 to-grad3' >
       <div>
         <RouterProvider router={router} />
       </div>
