@@ -33,7 +33,7 @@ const Book = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/books?genre=${book.genre}`)
+        const res = await axios.get(`http://localhost:8800/api/books`)
         console.log(book.genre)
         setBooks(res.data)
       } catch (error) {
