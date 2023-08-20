@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import Footer from "./components/Footer"
 import Tabbar from "./components/Tabbar"
 import About from "./pages/About";
-import Authors from "./pages/Authors";
 import Profile from "./pages/Profile"
 
 const Layout = () => {
@@ -38,10 +37,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "/authors",
-        element: <Authors />,
       },
       {
         path: "/profile",

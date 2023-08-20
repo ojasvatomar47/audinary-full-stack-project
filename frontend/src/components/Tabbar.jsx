@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { MdAccountCircle } from 'react-icons/md';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
@@ -10,6 +10,12 @@ const TabBar = () => {
   const iconSize = 24;
 
   const { currentUser, logout } = useContext(AuthContext)
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <div className='md:hidden'>
@@ -27,10 +33,34 @@ const TabBar = () => {
         </div>
       </div>
       <div className="fixed bottom-0 bg-gradient-to-r from-grad1 to-grad3 shadow-black shadow-2xl p-2 w-full flex justify-around items-center text-primary z-10 h-14">
-        <Link to="/" className='hover:text-buttonhover'><AiOutlineHome size={iconSize} /></Link>
-        <Link to="/authors" className='hover:text-buttonhover'><FaBook size={iconSize} /></Link>
-        <Link to="/profile" className='hover:text-buttonhover'><MdAccountCircle size={iconSize} /></Link>
-        <Link to="/about" className='hover:text-buttonhover'><HiOutlineInformationCircle size={iconSize} /></Link>
+        <div>
+          <Link to="/" className='hover:text-buttonhover'><AiOutlineHome size={iconSize} /></Link>
+        </div>
+        <div onClick={toggleDropdown} className='relative'>
+          {isDropdownOpen && (
+            <ul className="absolute top-[-180px] mt-2 bg-primary rounded-lg shadow-lg">
+              <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                <Link to="/?genre=Fantasy">Fantasy</Link>
+              </li>
+              <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                <Link to="/?genre=Drama">Drama</Link>
+              </li>
+              <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                <Link to="/?genre=Scifi">Sci-Fi</Link>
+              </li>
+              <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                <Link to="/?genre=Thriller">Thriller</Link>
+              </li>
+            </ul>
+          )}
+          <Link className='hover:text-buttonhover'><FaBook size={iconSize} /></Link>
+        </div>
+        <div>
+          <Link to="/profile" className='hover:text-buttonhover'><MdAccountCircle size={iconSize} /></Link>
+        </div>
+        <div>
+          <Link to="/about" className='hover:text-buttonhover'><HiOutlineInformationCircle size={iconSize} /></Link>
+        </div>
       </div>
     </div>
   );
