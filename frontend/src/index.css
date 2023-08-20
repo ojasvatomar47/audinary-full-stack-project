@@ -7,15 +7,27 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        font-family: 'Lora', serif;
-    }
+  html {
+    font-family: 'Lora', serif;
+  }
 }
 
 @layer utilities {
-    .audinary {
-        color: #CCEEBC;
-        font-family: 'Averia Sans Libre', cursive;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
+  .audinary {
+    color: #CCEEBC;
+    font-family: 'Averia Sans Libre', cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .amazon {
+    background-color: #ff9900;
+  }
+
+  .netflix {
+    background-color: #e50914;
+  }
+
+  .disney {
+    background-color: #0d253f;
+  }
 }

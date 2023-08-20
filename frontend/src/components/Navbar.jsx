@@ -63,7 +63,7 @@ const NavBar = () => {
         </div>
         <div className='flex justify-center items-center gap-8'>
           <h1 className='text-2xl text-secondary audinary bg-primary px-3 rounded-xl'>{currentUser?.username}</h1>
-          <button className='flex hover:bg-buttonhover justify-center text-white items-center cursor-pointer bg-primary p-2 rounded-md'>
+          <button className='flex hover:bg-buttonhover justify-center text-white items-center cursor-pointer bg-primary px-6 transition duration-200 ease-in-out py-2 text-lg rounded-md'>
             {currentUser ? <span onClick={logout}>LogOut</span> : <Link to="/login">LogIn</Link>}
           </button>
         </div>

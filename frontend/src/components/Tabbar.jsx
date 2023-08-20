@@ -20,14 +20,14 @@ const TabBar = () => {
   return (
     <div className='md:hidden'>
       <div className='top-0 bg-gradient-to-r from-grad1 to-grad3 h-14 w-full p-4 flex items-center justify-between'>
-        <div className="text-2xl font-semibold flex-1 audinary">
+        <div className="text-2xl font-semibold flex-1 audinary p-4">
           <Link to="/">
             audinary
           </Link>
         </div>
-        <div className='flex justify-center items-center gap-8'>
+        <div className='flex justify-center items-center gap-8 p-4'>
           <h1 className='text-2xl text-secondary audinary bg-primary px-3 rounded-xl'>{currentUser?.username}</h1>
-          <button className='flex hover:bg-buttonhover justify-center text-white items-center cursor-pointer bg-primary p-2 rounded-md'>
+          <button className='flex hover:bg-buttonhover justify-center text-white items-center cursor-pointer bg-primary px-6 transition duration-200 ease-in-out py-2 rounded-md'>
             {currentUser ? <span onClick={logout}>LogOut</span> : <Link to="/login">LogIn</Link>}
           </button>
         </div>

@@ -13,11 +13,9 @@ import Footer from "./components/Footer"
 import Tabbar from "./components/Tabbar"
 import About from "./pages/About";
 import Profile from "./pages/Profile"
+import Book from "./pages/Book"
 
 const Layout = () => {
-
-  const isMobile = window.innerWidth <= 768;
-  console.log(isMobile)
 
   return (
     <>
@@ -41,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/book/:id",
+        element: <Book />,
       },
       {
         path: "/about",
