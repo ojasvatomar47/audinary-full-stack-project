@@ -18,8 +18,8 @@ const TabBar = () => {
   };
 
   return (
-    <div className='md:hidden'>
-      <div className='top-0 bg-gradient-to-r from-grad1 to-grad3 h-14 w-full p-4 flex items-center justify-between'>
+    <div className='md:hidden w-full'>
+      <div className='top-0 bg-gradient-to-r from-grad1 to-grad3 h-14 w-full p-4 flex items-center justify-between absolute'>
         <div className="text-2xl font-semibold flex-1 audinary p-4">
           <Link to="/">
             audinary
