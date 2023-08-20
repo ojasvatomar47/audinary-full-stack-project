@@ -53,9 +53,16 @@ const Home = () => {
     return () => clearInterval(intervalId);
   }, [currentIndex, paragraphs]);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className='pt-16 md:pt-32'>
-      <div className="topcontent px-16 flex justify-center md:justify-between items-center">
+      <div className="topcontent px-16 flex justify-center md:justify-between lg:justify-around items-center">
         <div className="headtext text-primary flex flex-col justify-center items-center text-center">
           <h1 className='md:text-[100px] text-[60px] whitespace-normal m-auto'>
             Welcome to <span className='audinary'><Link>audinary</Link></span>
@@ -78,7 +85,7 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 md:gap-y-24">
           {cards.map((card) => {
             return (
-              <div key={card.bookid}>
+              <div key={card.bookid} onClick={scrollToTop}>
                 <Card book={card} />
               </div>
             )

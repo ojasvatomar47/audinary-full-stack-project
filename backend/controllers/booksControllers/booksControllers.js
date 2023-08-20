@@ -12,7 +12,7 @@ export const getPosts = (req, res) => {
 
 export const getPost = (req, res) => {
 
-    const idString = req.params.id; // Get the raw string value
+    const idString = req.params.id; // To get the raw string value
     const id = parseInt(idString.replace(':', ''), 10);
 
     const q = "SELECT * FROM books WHERE bookid = ?"

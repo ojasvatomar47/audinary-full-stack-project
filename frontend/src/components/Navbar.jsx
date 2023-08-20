@@ -34,18 +34,26 @@ const NavBar = () => {
               </li>
               {isDropdownOpen && (
                 <ul className="absolute left-0 mt-2 bg-primary rounded-lg shadow-lg">
-                  <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
-                    <Link to="/?genre=Fantasy">Fantasy</Link>
-                  </li>
-                  <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
-                    <Link to="/?genre=Drama">Drama</Link>
-                  </li>
-                  <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
-                    <Link to="/?genre=Scifi">Sci-Fi</Link>
-                  </li>
-                  <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
-                    <Link to="/?genre=Thriller">Thriller</Link>
-                  </li>
+                  <Link to="/?genre=Fantasy">
+                    <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                      Fantasy
+                    </li>
+                  </Link>
+                  <Link to="/?genre=Drama">
+                    <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                      Drama
+                    </li>
+                  </Link>
+                  <Link to="/?genre=Scifi">
+                    <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                      Sci-Fi
+                    </li>
+                  </Link>
+                  <Link to="/?genre=Thriller">
+                    <li className="px-4 py-2 text-white hover:bg-buttonhover" onClick={toggleDropdown}>
+                      Thriller
+                    </li>
+                  </Link>
                 </ul>
               )}
             </div>

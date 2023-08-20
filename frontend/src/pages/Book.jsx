@@ -23,10 +23,12 @@ const Book = () => {
     fetchBook()
   }, [bookId])
 
+  const datetimeString = book.launch;
+  const datetime = new Date(datetimeString);
+  const date = datetime.toString().split('00:00:00')[0];
+
   // For scrolling books
   const [books, setBooks] = useState([])
-
-  console.log(book.genre)
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -40,6 +42,13 @@ const Book = () => {
     }
     fetchBooks()
   }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className='flex flex-col justify-center h-full w-full p-9 gap-24 md:p-16'>
@@ -69,7 +78,7 @@ const Book = () => {
           <div className='flex flex-col justify-center items-center gap-6 text-center md:pt-[80px]'>
             <h1 className='text-4xl font-extrabold font-lora'>{book.title}</h1>
             <h2 className='text-2xl font-authortext'>{book.author}</h2>
-            <h3 className='text-lg font-alveria'>Date Published: {book.launch}</h3>
+            <h3 className='text-lg font-alveria'>Date Published: {date}</h3>
           </div>
           <div className="buttons flex flex-col justify-center items-center gap-6 text-xl">
             <div className="pdf-read p-5 bg-secondary hover:bg-green-300 cursor-pointer transition duration-300 ease-in-out hover:text-white">
@@ -81,7 +90,7 @@ const Book = () => {
           </div>
           <div className="buttons flex flex-col justify-center items-center gap-6 text-xl md:hidden">
             <a href={book.paperback} target='__blank'>
-              <div className="paperback p-4 rounded-full px-12 bg-transparent border-2 border-[#ff9900] hover:bg-[#ff9900] transition duration-300 cursor-pointer ease-in-out hover:text-white">
+              <div className="paperback p-4 rounded-full px-8 md:px-12 bg-transparent border-2 border-[#ff9900] hover:bg-[#ff9900] transition duration-300 cursor-pointer ease-in-out hover:text-white ">
                 <button>
                   <span>Buy it on Amazon</span>
                 </button>
@@ -105,17 +114,19 @@ const Book = () => {
         <div className="flex flex-nowrap gap-7 overflow-x-auto w-full">
           {books.map((bk) => {
             return (
-              <Link to={`/book/:${bk.bookid}`}>
-                <div key={bk.bookid} className="card flex flex-col w-auto p-3 hover:shadow-inner hover:shadow-primary transition duration-200 ease-out">
-                  <div className="img">
-                    <img src={bk.coverimg} alt="" className='rounded-xl mb-3' />
+              <div key={bk.bookid}>
+                <Link to={`/book/:${bk.bookid}`}>
+                  <div className="card flex flex-col w-auto p-3 hover:shadow-inner hover:shadow-primary transition duration-200 ease-out" onClick={scrollToTop}>
+                    <div className="img">
+                      <img src={bk.coverimg} alt="" className='rounded-xl mb-3' />
+                    </div>
+                    <div className="desc flex flex-col items-center justify-center gap-1 md:gap-3">
+                      <h1 className='overflow-hidden font-bold text-center text-md md:text-xl w-28 md:w-52'>{bk.title}</h1>
+                      <h3 className='text-center font-authortext text-xl'>{bk.author}</h3>
+                    </div>
                   </div>
-                  <div className="desc flex flex-col items-center justify-center gap-3">
-                    <h1 className='overflow-hidden font-bold text-center text-xl w-52'>{bk.title}</h1>
-                    <h3 className='text-center font-authortext text-xl'>{bk.author}</h3>
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             )
           })}
         </div>
