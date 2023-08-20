@@ -13,6 +13,7 @@ const Home = () => {
   const [cards, setCards] = useState([])
 
   const genre = useLocation().search
+  // ex: genre: ?genre=Drama
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -52,15 +53,22 @@ const Home = () => {
     return () => clearInterval(intervalId);
   }, [currentIndex, paragraphs]);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <div className=' pt-3 md:pt-32'>
-      <div className="topcontent px-16 flex justify-between items-center">
+    <div className='pt-16 md:pt-32'>
+      <div className="topcontent px-16 flex justify-center md:justify-between lg:justify-around items-center">
         <div className="headtext text-primary flex flex-col justify-center items-center text-center">
-          <h1 className='text-[100px] whitespace-normal line-clamp-4 w-auto m-auto'>
+          <h1 className='md:text-[100px] text-[60px] whitespace-normal m-auto'>
             Welcome to <span className='audinary'><Link>audinary</Link></span>
           </h1>
           <div className={`slideshow-container mt-10 h-14 transition-opacity duration-500 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="slideshow-text text-3xl w">
+            <p className="slideshow-text text-xl">
               {currentText}
             </p>
           </div>
@@ -74,10 +82,10 @@ const Home = () => {
         <button className='bg-primary rounded-r-md px-5 p-3 md:text-xl md:px-8 capitalize hover:bg-buttonhover'>Search</button>
       </div>
       <div className="p-12 mt-28 flex justify-center items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 md:gap-y-24">
           {cards.map((card) => {
             return (
-              <div key={card.bookid}>
+              <div key={card.bookid} onClick={scrollToTop}>
                 <Card book={card} />
               </div>
             )

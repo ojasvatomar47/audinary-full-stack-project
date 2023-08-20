@@ -13,11 +13,9 @@ import Footer from "./components/Footer"
 import Tabbar from "./components/Tabbar"
 import About from "./pages/About";
 import Profile from "./pages/Profile"
+import Book from "./pages/Book"
 
 const Layout = () => {
-
-  const isMobile = window.innerWidth <= 768;
-  console.log(isMobile)
 
   return (
     <>
@@ -43,6 +41,10 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
+        path: "/book/:id",
+        element: <Book />,
+      },
+      {
         path: "/about",
         element: <About />,
       },
@@ -60,7 +62,7 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <div className= 'App pb-12 md:pb-0 w-auto min-h-screen bg-gradient-to-r from-grad1 to-grad3' >
+    <div className= 'App pb-12 md:pb-0 min-w-full min-h-screen bg-gradient-to-r from-grad1 to-grad3' >
       <div>
         <RouterProvider router={router} />
       </div>
