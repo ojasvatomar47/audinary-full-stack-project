@@ -1,6 +1,6 @@
 import { db } from '../../db.js'
 
-export const getPosts = (req, res) => {
+export const getBooks = (req, res) => {
 
     const q = req.query.genre ? "SELECT * FROM books WHERE genre = ?" : "SELECT * FROM books"
 
@@ -10,7 +10,7 @@ export const getPosts = (req, res) => {
     })
 }
 
-export const getPost = (req, res) => {
+export const getBook = (req, res) => {
 
     const idString = req.params.id; // To get the raw string value
     const id = parseInt(idString.replace(':', ''), 10);
@@ -24,14 +24,14 @@ export const getPost = (req, res) => {
 
 }
 
-export const addPost = (req, res) => {
+export const addBook = (req, res) => {
 
 }
 
-export const deletePost = (req, res) => {
+export const deleteBook = (req, res) => {
 
 }
 
-export const putPost = (req, res) => {
+export const putBook = (req, res) => {
 
 }

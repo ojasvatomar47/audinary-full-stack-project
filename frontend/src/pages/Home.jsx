@@ -61,8 +61,8 @@ const Home = () => {
   };
 
   return (
-    <div className='pt-16 md:pt-32'>
-      <div className="topcontent px-16 flex justify-center md:justify-between lg:justify-around items-center">
+    <div className='md:pt-32'>
+      <div className="topcontent px-16 flex justify-center md:justify-between lg:justify-around items-center h-[100vh] md:h-[50%]">
         <div className="headtext text-primary flex flex-col justify-center items-center text-center">
           <h1 className='md:text-[100px] text-[60px] whitespace-normal m-auto'>
             Welcome to <span className='audinary'><Link>audinary</Link></span>
@@ -73,15 +73,15 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="hidden md:block">
+        {/* <div className="hidden md:block">
           <img className='h-[300px] w-[300px]' src={BookPng} alt="" />
-        </div>
+        </div> */}
       </div>
-      <div className="search mt-32 mx-5 flex items-center md:mx-24">
+      <div className="search md:mt-32 mx-5 flex items-center md:mx-24">
         <input type="text" placeholder='Search for books' className='p-3 w-full rounded-l-md md:text-xl md:px-8 capitalize' />
         <button className='bg-primary rounded-r-md px-5 p-3 md:text-xl md:px-8 capitalize hover:bg-buttonhover'>Search</button>
       </div>
-      <div className="p-12 mt-28 flex justify-center items-center">
+      <div className="p-12 mt-20 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 md:gap-y-24">
           {cards.map((card) => {
             return (

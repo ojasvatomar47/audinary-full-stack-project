@@ -50,15 +50,6 @@ const Book = () => {
     });
   };
 
-  let buttons = ["Prime", "#00a8e1", "#0e93c0"]
-
-  if(book.platform==="Netflix") {
-    buttons = ["Netflix", "#e50914", "#cf0812"]
-  } else if(book.platform==="Hotstar") {
-    buttons = ["Hotstar", "#0d253f", "#083463"]
-  }
-  console.log(buttons)
-
   return (
     <div className='flex flex-col justify-center h-full w-full p-9 gap-24 md:p-16'>
       <div className='book flex flex-col justify-center items-center md:items-start gap-12 md:flex md:flex-row md:gap-28 md:min-h-[800px] relative'>
@@ -75,9 +66,9 @@ const Book = () => {
               </div>
             </a>
             <a href={book.adaptation} target='__blank'>
-              <div className={`streaming p-4 rounded-md px-10 bg-[${buttons[1].split("\"")[0]}] cursor-pointer text-white hover:bg-[${buttons[2].split("\"")[0]}] transition duration-300 ease-in-out`}>
+              <div className={`streaming p-4 text-white rounded-md px-10 ${book.platform === 'Netflix'? 'bg-[#e50914] hover:bg-[#cf0812]' : book.platform === 'Hotstar' ? 'bg-[#0d253f] hover:bg-[#083463]' : 'bg-[#00a8e1] hover:bg-[#0e93c0]'} transition duration-300 ease-in-out`}>
                 <button>
-                  <span className='tracking-wider'>Watch on {buttons[0]}</span>
+                  <span className='tracking-wider'>Watch on {book.platform}</span>
                 </button>
               </div>
             </a>
@@ -106,9 +97,9 @@ const Book = () => {
               </div>
             </a>
             <a href={book.adaptation} target='__blank'>
-              <div className={`streaming p-4 rounded-md px-10 bg-[${buttons[1].split("\"")[0]}] cursor-pointer text-white hover:bg-[${buttons[2].split("\"")[0]}] transition duration-300 ease-in-out`}>
+              <div className={`streaming text-white p-4 rounded-md px-10 ${book.platform === 'Netflix'? 'bg-[#e50914] hover:bg-[#cf0812]' : book.platform === 'Hotstar' ? 'bg-[#0d253f] hover:bg-[#083463]' : 'bg-[#00a8e1] hover:bg-[#0e93c0]'} cursor-pointer text-white transition duration-300 ease-in-out`}>
                 <button>
-                  <span>Watch on {buttons[0]}</span>
+                  <span>Watch on {book.platform}</span>
                 </button>
               </div>
             </a>
