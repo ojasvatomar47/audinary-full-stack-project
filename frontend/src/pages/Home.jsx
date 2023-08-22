@@ -66,11 +66,11 @@ const Home = () => {
       <div style={{ backgroundImage: `url(${top})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='flex flex-col items-center'>
         <div className="topcontent flex justify-center md:justify-between lg:justify-around items-center h-[100vh]">
           <div className="headtext px-6 text-primary flex flex-col justify-center items-center text-center">
-            <h1 className='md:text-[100px] text-[60px] whitespace-normal m-auto'>
+            <h1 className='md:text-[100px] text-[60px] whitespace-normal m-auto cursor-pointer'>
               Welcome to <span className='audinary underline'><Link>audinary</Link></span>
             </h1>
             <div className={`slideshow-container mt-10 h-14 transition-opacity duration-500 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              <p className="slideshow-text text-xl bg-primary rounded-md text-white p-1 md:p-2">
+              <p className="cursor-pointer slideshow-text text-xl bg-primary rounded-md text-white p-1 md:p-2">
                 {currentText}
               </p>
             </div>

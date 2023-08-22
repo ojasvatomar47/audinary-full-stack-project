@@ -10,11 +10,11 @@ const AboutUsPage = () => {
         <div className="md:w-1/2 md:pt-36 md:pr-4">
           <div className="p-4 rounded flex flex-col gap-5 md:gap-36">
             <div className='flex flex-col justify-center items-center gap-4 md:gap-12'>
-              <div className='bg-primary text-secondary w-fit px-5 py-10 rounded-xl hover:bg-buttonhover text-3xl flex justify-center items-center'>
+              <div className='bg-primary hover:text-white cursor-pointer transition duration-200 ease-linear text-secondary w-fit px-5 py-10 rounded-xl hover:bg-buttonhover text-3xl flex justify-center items-center'>
                 <p><span className='underline'>Number of Books</span>: 15</p>
               </div>
-              <div className='bg-primary text-secondary w-fit px-5 py-10 rounded-xl hover:bg-buttonhover text-3xl flex justify-center items-center'>
-                <p><span className='underline'>Number of Users Signed In</span>: 5</p>
+              <div className='bg-primary hover:text-white cursor-pointer transition duration-200 ease-linear text-secondary w-fit px-5 py-10 rounded-xl hover:bg-buttonhover text-3xl flex justify-center items-center'>
+                <p><span className='underline'>Number of Users</span>: 5</p>
               </div>
             </div>
             <div className="flex gap-8 mt-4 justify-center items-center">
