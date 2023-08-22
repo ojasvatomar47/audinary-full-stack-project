@@ -13,6 +13,13 @@ const NavBar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <nav className="hidden md:block bg-gradient-to-r from-grad1 to-grad3 p-4 text-primary fixed w-full z-10 top-0">
       <div className="flex justify-between items-center">
@@ -30,7 +37,7 @@ const NavBar = () => {
             </div>
             <div className='relative'>
               <li className='drop-shadow-lg text-xl hover:text-buttonhover' onClick={toggleDropdown}>
-                <Link>Genres</Link>
+                <span className='cursor-pointer'>Genres</span>
               </li>
               {isDropdownOpen && (
                 <ul className="absolute left-0 mt-2 bg-primary rounded-lg shadow-lg">
@@ -64,7 +71,7 @@ const NavBar = () => {
             </div>
             <div>
               <li className='drop-shadow-lg text-xl hover:text-buttonhover'>
-                <Link to="/about">About Us</Link>
+                <Link to="/about" onClick={scrollToTop}>About Us</Link>
               </li>
             </div>
           </ul>

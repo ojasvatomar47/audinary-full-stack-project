@@ -62,7 +62,7 @@ const Home = () => {
 
   return (
     <div className='md:pt-32'>
-      <div className="topcontent px-16 flex justify-center md:justify-between lg:justify-around items-center h-[100vh] md:h-[50%]">
+      <div className="topcontent px-16 flex justify-center md:justify-between lg:justify-around items-center h-[100vh] md:h-[50%] style={{ backgroundImage: `url(${BookPng})`, backgroundSize: 'cover', backgroundPosition: 'center' }}">
         <div className="headtext text-primary flex flex-col justify-center items-center text-center">
           <h1 className='md:text-[100px] text-[60px] whitespace-normal m-auto'>
             Welcome to <span className='audinary'><Link>audinary</Link></span>
