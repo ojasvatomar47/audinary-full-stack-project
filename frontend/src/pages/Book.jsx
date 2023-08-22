@@ -55,7 +55,7 @@ const Book = () => {
       <div className='book flex flex-col justify-center items-center md:items-start gap-12 md:flex md:flex-row md:gap-28 md:min-h-[800px] relative'>
         <div className='cover-img h-auto w-auto max-w-[300px] mt-12 md:flex-1 md:mt-24 md:flex md:flex-col gap-12'>
           <div>
-            <img src={book.coverimg} alt="" className='object-cover w-full' />
+            <img src={book.coverimg} alt="" className='object-cover w-full border-2 border-secondary' />
           </div>
           <div className="buttons hidden md:flex flex-col justify-center items-center gap-9 text-xl">
             <a href={book.paperback} target='__blank'>
@@ -76,8 +76,8 @@ const Book = () => {
         </div>
         <div className='full-info flex flex-col justify-center items-center gap-16 md:flex-1 md:justify-end'>
           <div className='flex flex-col justify-center items-center gap-6 text-center md:pt-[80px]'>
-            <h1 className='text-4xl font-extrabold font-lora'>{book.title}</h1>
-            <h2 className='text-2xl font-authortext'>{book.author}</h2>
+            <h1 className='text-4xl font-extrabold font-lora text-primary'>{book.title}</h1>
+            <h2 className='text-2xl font-authortext text-secondary'>{book.author}</h2>
             <h3 className='text-lg font-alveria'>Date Published: {date}</h3>
           </div>
           <div className="buttons flex flex-col justify-center items-center gap-6 text-xl">

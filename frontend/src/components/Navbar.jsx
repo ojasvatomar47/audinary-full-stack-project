@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { FiHome, FiSearch, FiBell, FiUser } from 'react-icons/fi';
 import { AuthContext } from '../context/authContext'
@@ -13,6 +13,23 @@ const NavBar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const [navBackground, setNavBackground] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setNavBackground(true);
+    } else {
+      setNavBackground(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -21,7 +38,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="hidden md:block bg-gradient-to-r from-grad1 to-grad3 p-4 text-primary fixed w-full z-10 top-0">
+    <nav className={`hidden md:block transition duration-300 ${navBackground ? 'bg-grad1' : 'bg-transparent'} p-4 text-primary fixed w-full z-10 top-0`}>
       <div className="flex justify-between items-center">
         <div className="text-3xl font-semibold flex-1 audinary">
           <Link to="/">

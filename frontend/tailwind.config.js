@@ -7,12 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        grad1: '#FAF0D7',
-        grad2: '#464646',
-        grad3: '#FFD9C0',
-        primary: '#8CC0DE',
-        secondary: '#CCEEBC',
-        buttonhover: '#6A9ABD',
+        grad1: '#030b1c',
+        grad2: '#efc1a0',
+        grad3: '#464646',
+        primary: '#e6be8a',
+        secondary: '#B76E79',
+        buttonhover: '#b8860b',
       },
       fontFamily: {
         alveria: ['Averia Sans Libre', 'cursive'],
