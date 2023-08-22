@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { MdAccountCircle } from 'react-icons/md';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
@@ -17,6 +17,23 @@ const TabBar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const[navBackground, setNavBackground] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setNavBackground(true);
+    } else {
+      setNavBackground(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -26,7 +43,7 @@ const TabBar = () => {
 
   return (
     <div className='md:hidden w-full'>
-      <div className='top-0 bg-gradient-to-r from-grad1 to-grad3 h-14 w-full p-4 flex items-center justify-between absolute'>
+      <div className='top-0 bg-transparent h-14 w-full flex items-center justify-between absolute'>
         <div className="text-2xl font-semibold flex-1 audinary p-4">
           <Link to="/">
             audinary
@@ -39,7 +56,7 @@ const TabBar = () => {
           </button>
         </div>
       </div>
-      <div className="fixed bottom-0 bg-gradient-to-r from-grad1 to-grad3 shadow-black shadow-2xl p-2 w-full flex justify-around items-center text-primary z-10 h-14">
+      <div className={`fixed bottom-0 transition duration-300 ${navBackground ? 'bg-grad1' : 'bg-transparent'} shadow-black shadow-2xl p-2 w-full flex justify-around items-center text-primary z-10 h-14`}>
         <div>
           <Link to="/" className='hover:text-buttonhover'><AiOutlineHome size={iconSize} /></Link>
         </div>
