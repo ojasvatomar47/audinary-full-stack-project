@@ -11,7 +11,7 @@ const Card = ({ book }) => {
           </div>
           <div className="info flex flex-col justify-center items-center flex-1 gap-3">
             <h1 className='md:text-[35px] text-center drop-shadow-lg'>{book.title}</h1>
-            <h3 className='md:text-[30px] text-grad2 drop-shadow-lg font-authortext'>{book.author}</h3>
+            <h3 className='md:text-[30px] text-secondary drop-shadow-lg font-authortext'>{book.author}</h3>
           </div>
         </div>
       </div>

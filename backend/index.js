@@ -4,6 +4,7 @@ import cors from 'cors'
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/usersRoute.js";
 import booksRoute from "./routes/booksRoute.js"
+import favRoute from "./routes/favRoute.js"
 import cookieParser from 'cookie-parser';
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(cors())
 app.use("/api/auth", authRoute)
 app.use("/api/users", userRoute)
 app.use("/api/books", booksRoute)
+app.use("/api/favs", favRoute)
 
 app.get("/", (req,res) => {
     res.json("Hello there")
