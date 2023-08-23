@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        grad1: '#030b1c',
+        grad1: '#030303',
         grad2: '#efc1a0',
-        grad3: '#464646',
+        grad3: '#5a5a5a',
         primary: '#e6be8a',
         secondary: '#B76E79',
         buttonhover: '#b8860b',

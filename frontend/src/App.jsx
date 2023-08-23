@@ -62,7 +62,7 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <div className= 'App pb-12 md:pb-0 min-w-full min-h-screen bg-gradient-to-br from-grad1 to-grad3' >
+    <div className= 'App pb-12 md:pb-0 min-w-full min-h-screen bg-gradient-to-b from-grad1 to-grad3' >
       <div>
         <RouterProvider router={router} />
       </div>

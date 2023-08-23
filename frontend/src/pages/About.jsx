@@ -1,7 +1,6 @@
 import React from 'react';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'; // Import icons
 import { IoMdSend } from 'react-icons/io'; // Import another icon
-import AboutUsImage from '../assets/aboutus1.jpg'; // Replace with your image
 
 const AboutUsPage = () => {
   return (
@@ -18,10 +17,10 @@ const AboutUsPage = () => {
               </div>
             </div>
             <div className="flex gap-8 mt-4 justify-center items-center">
-              <a href="https://github.com/ojasvatomar47">
+              <a href="https://github.com/ojasvatomar47" target='__blank'>
                 <AiFillGithub className='text-5xl md:text-7xl text-#333 hover:text-secondary transition duration-200 ease-in-out' />
               </a>
-              <a href="https://www.linkedin.com/in/ojasva-tomar-baba1826a">
+              <a href="https://www.linkedin.com/in/ojasva-tomar-baba1826a" target='__blank'>
                 <AiFillLinkedin className='text-5xl md:text-7xl hover:text-blue-500 transition duration-200 ease-in-out' />
               </a>
             </div>

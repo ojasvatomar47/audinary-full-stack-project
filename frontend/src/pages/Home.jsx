@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import BookPng from '../assets/book.png'
-import coverimg from '../assets/coverimage.jpg'
 import Card from '../components/Card.jsx'
 import { Link, useLocation } from 'react-router-dom'
 import { AuthContext } from '../context/authContext'
 import axios from 'axios'
-import top from '../assets/top2.jpg'
+import top from '../assets/top3.jpg'
 
 const Home = () => {
 
@@ -67,7 +65,7 @@ const Home = () => {
         <div className="topcontent flex justify-center md:justify-between lg:justify-around items-center h-[100vh]">
           <div className="headtext px-6 text-primary flex flex-col justify-center items-center text-center">
             <h1 className='md:text-[100px] text-[60px] whitespace-normal m-auto cursor-pointer'>
-              Welcome to <span className='audinary underline'><Link>audinary</Link></span>
+              Welcome to <span className='audinary underline'><Link onClick={scrollToTop}>audinary</Link></span>
             </h1>
             <div className={`slideshow-container mt-10 h-14 transition-opacity duration-500 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               <p className="cursor-pointer slideshow-text text-xl bg-primary rounded-md text-white p-1 md:p-2">
