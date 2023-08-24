@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import axios from 'axios'
+import { AuthContext } from '../context/authContext'
+import { FaRegStar, FaStar } from 'react-icons/fa'
 
 const Book = () => {
+
+  const { currentUser } = useContext(AuthContext)
 
   const [book, setBook] = useState({})
 
@@ -43,6 +47,41 @@ const Book = () => {
     fetchBooks()
   }, [])
 
+  const [isFavourite, setIsFavourite] = useState(false)
+
+  const addToFav = async () => {
+    try {
+      if(!currentUser) alert("You can't add the book to favourites if you're not signed up!")
+      await axios.post(`http://localhost:8800/api/favs/add`, { userid: currentUser.id, bookid: book.bookid })
+      setIsFavourite(true)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const removeFromFav = async () => {
+    try {
+      await axios.delete(`http://localhost:8800/api/favs/remove`, { data: { userid: currentUser.id, bookid: book.bookid } })
+      setIsFavourite(false)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    const bookCheck = async () => {
+      try {
+        const res = await axios.get(`http://localhost:8800/api/favs/:${currentUser.id}`)
+        console.log(res.data)
+        const favoriteBooks = res.data
+        setIsFavourite(favoriteBooks.includes(book.bookid))  
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    bookCheck()
+  },[currentUser.id, book.bookid])
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -76,7 +115,9 @@ const Book = () => {
         </div>
         <div className='full-info flex flex-col justify-center items-center gap-16 md:flex-1 md:justify-end'>
           <div className='flex flex-col justify-center items-center gap-6 text-center md:pt-[80px]'>
-            <h1 className='text-4xl font-extrabold font-lora text-primary'>{book.title}</h1>
+            <h1 className='text-4xl font-extrabold font-lora text-primary'>{book.title} <span className='inline-flex justify-center items-center'>
+              {isFavourite ? <FaStar onClick={removeFromFav} /> : <FaRegStar onClick={addToFav} />}
+            </span></h1>
             <h2 className='text-2xl font-authortext text-secondary'>{book.author}</h2>
             <h3 className='text-lg font-alveria'>Date Published: {date}</h3>
           </div>
