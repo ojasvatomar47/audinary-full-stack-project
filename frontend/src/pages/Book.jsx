@@ -71,8 +71,7 @@ const Book = () => {
   useEffect(() => {
     const bookCheck = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/favs/:${currentUser.id}`)
-        console.log(res.data)
+        const res = await axios.get(`http://localhost:8800/api/favs/:${currentUser?.id}`)
         const favoriteBooks = res.data
         setIsFavourite(favoriteBooks.includes(book.bookid))  
       } catch (error) {
@@ -80,7 +79,7 @@ const Book = () => {
       }
     }
     bookCheck()
-  },[currentUser.id, book.bookid])
+  },[currentUser?.id, book.bookid])
 
   const scrollToTop = () => {
     window.scrollTo({

@@ -82,7 +82,7 @@ const Home = () => {
       </div>
 
       <div className="md:p-12 mt-20 flex justify-center items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 md:gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-20">
           {cards.map((card) => {
             return (
               <div key={card.bookid} onClick={scrollToTop}>
