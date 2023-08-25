@@ -41,7 +41,7 @@ const NavBar = () => {
     <nav className={`hidden md:block transition duration-300 ${navBackground ? 'bg-grad1' : 'bg-transparent'} p-4 text-primary fixed w-full z-10 top-0`}>
       <div className="flex justify-between items-center">
         <div className="text-3xl font-semibold flex-1 audinary">
-          <Link to="/">
+          <Link to="/" onClick={scrollToTop}>
             audinary
           </Link>
         </div>
@@ -49,7 +49,7 @@ const NavBar = () => {
           <ul className='flex justify-evenly items-center gap-1'>
             <div>
               <li className='drop-shadow-lg text-xl hover:text-buttonhover'>
-                <Link to="/">Home</Link>
+                <Link to="/" onClick={scrollToTop}>Home</Link>
               </li>
             </div>
             <div className='relative'>
@@ -83,7 +83,7 @@ const NavBar = () => {
             </div>
             <div>
               <li className='drop-shadow-lg text-xl hover:text-buttonhover'>
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile" onClick={scrollToTop}>Profile</Link>
               </li>
             </div>
             <div>
@@ -94,7 +94,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div className='flex justify-center items-center gap-8'>
-          <h1 className='text-2xl text-secondary audinary bg-primary px-3 rounded-xl'>{currentUser?.username}</h1>
+          <h1 className='text-2xl text-secondary audinary bg-secondary px-3 rounded-xl'><Link to="/profile">{currentUser?.username}</Link></h1>
           <button className='flex hover:bg-buttonhover justify-center text-white items-center cursor-pointer bg-primary px-6 transition duration-200 ease-in-out py-2 text-lg rounded-md'>
             {currentUser ? <span onClick={logout}>LogOut</span> : <Link to="/login">LogIn</Link>}
           </button>
